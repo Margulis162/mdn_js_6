@@ -1,4 +1,4 @@
-function displayMessage() {
+function displayMessage(msgText, msgType) {
 
     const body = document.body;
 
@@ -7,7 +7,7 @@ function displayMessage() {
     body.appendChild(panel);
 
     const msg = document.createElement("p");
-    msg.textContent = "This is the message";
+    msg.textContent = msgText;
     panel.appendChild(msg);
 
     const closeBtn = document.createElement("button");
@@ -17,8 +17,18 @@ function displayMessage() {
     
     closeBtn.addEventListener("click", () => panel.parentNode.removeChild(panel),);
 
-}
+    //icons
+    if(msgType === "warning") {
+        msg.style.backgroundImage = "url(icons/warning.png)";
+        panel.style.backgroundColor = "red";
+    } else if (msgType === "chat") {
+        msg.style.backgroundImage = "url(icons/chat.png)";
+        panel.style.backgroundColor = "aqua";
+    } else { msg.style.paddingLeft = "20px";}
+    }
+
+
 
 const btn = document.querySelector("button");
-btn.addEventListener("click", displayMessage);
+btn.addEventListener("click", () => displayMessage("Your inbox is almost full — delete some mails", "warning"));
 
