@@ -1,6 +1,6 @@
 function displayMessage() {
 
-    const body = docyment.body;
+    const body = document.body;
 
     const panel = document.createElement("div");
     panel.setAttribute("class", "msgBox");
@@ -18,3 +18,7 @@ function displayMessage() {
     closeBtn.addEventListener("click", () => panel.parentNode.removeChild(panel),);
 
 }
+
+const btn = document.querySelector("button");
+btn.addEventListener("click", displayMessage);
+
